@@ -15,9 +15,9 @@ Provides high level abstraction to use Wincor Nixdorf Point of Sale VFD USB
 
 ## Dependencies
 
-This library needs pywinusb, and can only works in Windows. The Linux version should be easy to write following this code (don't forget to let it public or republish as this piece of software uses GPLv3 licence).
+This library needs pywinusb, and can only work in Windows. The Linux version should be easy to write following this code (don't forget to let it public or republish as this piece of software uses GPLv3 licence).
 
-You don't need anything if your download direcly zip package release.
+You don't need anything if your download direcly zip release package as VFD-POS_vxx.zip.
 
 Some examples which pull info from Internet require Easy-REST-JSON library available at 
 https://github.com/antonio-fr/Easy-REST-JSON
@@ -31,7 +31,7 @@ If your OS is Windows, download direcly zip package release.
 To use the library, just copy vfd_pos.py and use import as usual
 
     import vfd_pos
-    
+
 or
 
     from vfd_pos import *

@@ -86,7 +86,9 @@ class vfd_pos:
 		
 	def write_msg(self,msgu):
 		msg=msgu.encode('cp858')
-		msg_chr=list(msg)[0:29]
-		self.send_ctrl_seq(map( ord, msg_chr ))
+		while msg:
+			msg_chr = list(msg)[0:29]
+			self.send_ctrl_seq(map( ord, msg_chr ))
+			msg = msg[29:]
 	
 
