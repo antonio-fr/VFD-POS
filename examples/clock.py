@@ -18,18 +18,23 @@
 import vfd_pos
 import time
 
-wnpos = vfd_pos.vfd_pos(0x0201)
+wnpos = vfd_pos.vfd_pos(0x0200)
 print "PRESS CTRL+C TO QUIT"
+
+def printdate(onepos):
+		present_time = time.localtime()
+		onepos.poscur(1,1)
+		remaining = 60 - present_time.tm_sec
+		date = time.strftime("%a %d %b %Y", present_time).center(20)
+		onepos.write_msg(date)
+		hour = time.strftime("%H:%M", present_time).center(20)
+		onepos.poscur(2,1)
+		onepos.write_msg(hour)
+		time.sleep(remaining)
+
 try:
 	while True:
-		wnpos.poscur(1,1)
-		prestime = time.localtime()
-		date = time.strftime("%a %d %b %Y", prestime).center(20)
-		wnpos.write_msg(date)
-		hour = time.strftime("%H:%M", prestime).center(20)
-		wnpos.poscur(3,1)
-		wnpos.write_msg(hour) 
-		time.sleep(10)
+		printdate(wnpos)
 except KeyboardInterrupt:
 	pass
 wnpos.close()
